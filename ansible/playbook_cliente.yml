@@ -1,0 +1,31 @@
+---
+# Playbook configuração da VM Client!
+- hosts: cliente 
+  name: Configuracao da vm cliente
+  remote_user: vagrant
+  become: yes
+  tasks:    
+    - name: Ajustando Timezone
+      timezone:
+        name: America/Sao_Paulo
+        
+    - name: Gerar Chave SSH
+      openssh_keypair:
+       path: /home/vagrant/.ssh/id_rsa
+       owner: vagrant
+       group: vagrant
+
+    - name: Run the equivalent of "apt-get update" as a separate step
+      apt:
+         update_cache: yes
+
+    - name: instalação do apache 
+      apt:
+        name: apache2
+        state: present
+
+    - name: instalação do locate
+      apt:
+        pkg:
+          - mlocate
+          - elinks

@@ -1,0 +1,5 @@
+containers ansible_connection=local
+
+[cliente]
+cliente
+
