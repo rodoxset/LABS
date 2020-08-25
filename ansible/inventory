@@ -1,5 +1,5 @@
 containers ansible_connection=local
 
 [cliente]
-cliente
+172.17.177.21 ansible_ssh_pass=vagrant ansible_ssh_user=vagrant
 

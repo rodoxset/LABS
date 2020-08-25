@@ -9,6 +9,7 @@ Vagrant.configure("2") do |config|
   ## Cliente - VM Alvo para configuracao da Playbook do Ansible
   config.vm.define 'cliente' do |cliente|
     cliente.vm.network "private_network", ip: "172.17.177.21"
+    cliente.vm.network "forwarded_port", guest: 80 , host: 8080
     cliente.vm.hostname = "cliente" # Hostname da VM
 
   # Configurações de Size da VM
